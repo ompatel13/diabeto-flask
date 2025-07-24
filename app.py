@@ -11,7 +11,7 @@ scaler = joblib.load('scaler.pkl')
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 genai_model = genai.GenerativeModel('gemini-2.0-flash')
 
-# ---------- Initialize Flask ----------
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -21,7 +21,7 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        # Get user input from form
+        
         name = request.form['name']
         age = int(request.form['Age'])
         diet_pref = request.form['diet_preference']
@@ -33,16 +33,18 @@ def predict():
             'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age'
         ]]
 
-        # Store extra info for Gemini use
+        
         bmi = features[5]
         glucose = features[1]
 
-        # Scale input and predict
-        scaled_features = scaler.transform([features])
+        
+        columns = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+        input_df = pd.DataFrame([features], columns=columns)
+        scaled_features = scaler.transform(input_df)
         prediction = ml_model.predict(scaled_features)[0]
         prob = ml_model.predict_proba(scaled_features)[0][1]
 
-        # If at risk, show "generate diet" button
+        
         if prediction == 1:
             result = f"You are at risk of Diabetes. (Confidence: {prob*100:.2f}%)"
             return render_template('result.html', result=result, risk=True, user_data={
@@ -88,7 +90,7 @@ def diet():
         return f"Gemini API Error: {e}"
 
 
-# ---------- Run Flask ----------
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
