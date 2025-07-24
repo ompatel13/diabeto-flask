@@ -9,7 +9,6 @@ ml_model = joblib.load('diabetes_model.pkl')
 scaler = joblib.load('scaler.pkl')
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-genai.configure(api_key=api_key)
 genai_model = genai.GenerativeModel('gemini-2.0-flash')
 
 # ---------- Initialize Flask ----------
