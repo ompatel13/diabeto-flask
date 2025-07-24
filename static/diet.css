@@ -1,0 +1,39 @@
+body {
+  background-color: #211d26;
+  color: #ccc;
+  font-family: Arial, sans-serif;
+  padding: 30px;
+  line-height: 1.7;
+}
+
+.container {
+  background-color: #2e2a36;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  color: #cc4040;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.disclaimer {
+  font-style: italic;
+  color: #ccc;
+  margin-top: 30px;
+  font-size: 0.9rem;
+}
+
+a {
+  color: #cc4040;
+}

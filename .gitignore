@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Model and data files
+*.pkl
+*.csv
+
+# Virtual environment
+diabeto/
+
+# VS Code settings (optional)
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db

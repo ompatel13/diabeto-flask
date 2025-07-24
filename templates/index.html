@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diabetes Risk Predictor</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='favicon.png') }}"
+    />
+  </head>
+  <body>
+    <h2>Enter Patient Details</h2>
+    <form action="/predict" method="POST">
+      <input type="text" name="name" placeholder="Name" required /><br />
+      <input
+        type="text"
+        name="diet_preference"
+        placeholder="Diet Preference (veg/non-veg)"
+        required
+      /><br />
+      <input type="text" name="state" placeholder="State" required /><br />
+      <input type="text" name="country" placeholder="Country" required /><br />
+
+      <input
+        type="number"
+        name="Pregnancies"
+        step="1"
+        placeholder="Pregnancies"
+        required
+      /><br />
+      <input
+        type="number"
+        name="Glucose"
+        step="0.01"
+        placeholder="Glucose"
+        required
+      /><br />
+      <input
+        type="number"
+        name="BloodPressure"
+        step="0.01"
+        placeholder="Blood Pressure"
+        required
+      /><br />
+      <input
+        type="number"
+        name="SkinThickness"
+        step="0.01"
+        placeholder="Skin Thickness"
+        required
+      /><br />
+      <input
+        type="number"
+        name="Insulin"
+        step="0.01"
+        placeholder="Insulin"
+        required
+      /><br />
+      <input
+        type="number"
+        name="BMI"
+        step="0.01"
+        placeholder="BMI"
+        required
+      /><br />
+      <input
+        type="number"
+        name="DiabetesPedigreeFunction"
+        step="0.01"
+        placeholder="Diabetes Pedigree Function"
+        required
+      /><br />
+      <input
+        type="number"
+        name="Age"
+        step="1"
+        placeholder="Age"
+        required
+      /><br />
+
+      <button type="submit">Predict</button>
+    </form>
+  </body>
+</html>

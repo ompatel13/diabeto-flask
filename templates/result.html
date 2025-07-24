@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Result</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='result.css') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='favicon.png') }}"
+    />
+  </head>
+  <body>
+    <h2>{{ result }}</h2>
+
+    {% if risk %}
+    <form action="/diet" method="POST">
+      <input type="hidden" name="name" value="{{ user_data.name }}" />
+      <input type="hidden" name="age" value="{{ user_data.age }}" />
+      <input
+        type="hidden"
+        name="diet_preference"
+        value="{{ user_data.diet_preference }}"
+      />
+      <input type="hidden" name="state" value="{{ user_data.state }}" />
+      <input type="hidden" name="country" value="{{ user_data.country }}" />
+      <input type="hidden" name="bmi" value="{{ user_data.bmi_value }}" />
+      <input
+        type="hidden"
+        name="glucose"
+        value="{{ user_data.glucose_value }}"
+      />
+      <button type="submit">Generate Personalized Diet Plan</button>
+    </form>
+    {% endif %}
+  </body>
+</html>

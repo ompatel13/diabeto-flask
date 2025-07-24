@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Personalized Diet Plan</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='diet.css') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='favicon.png') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Hello {{ name }}, here’s your diet plan:</h2>
+      <div>{{ diet_plan|safe }}</div>
+      <p class="disclaimer">
+        Disclaimer: This diet plan is AI-generated. Please consult a doctor
+        before making any changes.
+      </p>
+    </div>
+  </body>
+</html>
