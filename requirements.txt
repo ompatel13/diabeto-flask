@@ -1,5 +1,9 @@
 Flask
+joblib
+google-generativeai
+markdown
 numpy
 pandas
 scikit-learn
-google-generativeai
+matplotlib
+seaborn
