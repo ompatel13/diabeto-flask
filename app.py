@@ -3,7 +3,7 @@ import joblib
 import google.generativeai as genai
 import markdown 
 import os
-import pandas
+import pandas as pd
 
 ml_model = joblib.load('diabetes_model.pkl')
 scaler = joblib.load('scaler.pkl')
